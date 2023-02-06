@@ -34,10 +34,8 @@ internal class LottoTicketTest {
 
     @Test
     fun `특정 숫자가 포함되어있는지 확인할 수 있다`() {
-        //given
-        val lottoNumbers = intArrayOf(1, 2, 3, 4, 5, 6)
         //when
-        val actualResult = LottoTicket(*lottoNumbers).has(LottoNumber.of(7))
+        val actualResult = LottoTicket(1,2,3,4,5,6).has(LottoNumber.of(7))
         //then
         assertThat(actualResult).isFalse()
     }

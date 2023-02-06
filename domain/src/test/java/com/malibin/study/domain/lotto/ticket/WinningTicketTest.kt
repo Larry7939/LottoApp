@@ -54,11 +54,12 @@ internal class WinningTicketTest {
         val winningNumbers = LottoTicket(1, 2, 3, 4, 5, 6)
         val bonusNumber = LottoNumber.of(20)
         val winningTicket = WinningTicket(winningNumbers, bonusNumber)
+        val expectedPrize = mapOf(Prize.First to 1, Prize.Second to 2, Prize.Third to 3)
         //when
         val actualPrize = winningTicket.compareWith(otherTickets)
         //then
         assertThat(actualPrize).isEqualTo(
-            mapOf(Pair(Prize.First, 1), Pair(Prize.Second, 1), Pair(Prize.Third, 3))
+            expectedPrize
         )
     }
 

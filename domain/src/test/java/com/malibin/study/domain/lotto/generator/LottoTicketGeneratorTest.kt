@@ -12,8 +12,7 @@ internal class LottoTicketGeneratorTest {
     fun `6개의 랜덤 번호로 구성된 티켓이 생성된다`() {
         //given
         val ticket = LottoTicket(1, 2, 3, 4, 5, 6)
-        //when
-        val actualLottoTicket = LottoTicketGenerator {
+        val generator = LottoTicketGenerator {
             setOf(
                 LottoNumber.of(1),
                 LottoNumber.of(2),
@@ -22,7 +21,9 @@ internal class LottoTicketGeneratorTest {
                 LottoNumber.of(5),
                 LottoNumber.of(6),
             )
-        }.createAutoTicket()
+        }
+        //when
+        val actualLottoTicket = generator.createAutoTicket()
         //then
         assertAll(
             { assertThat(actualLottoTicket).isEqualTo(ticket) }
