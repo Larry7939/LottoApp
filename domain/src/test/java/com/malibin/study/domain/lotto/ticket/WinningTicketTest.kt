@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource
 
 internal class WinningTicketTest {
     @Test
-    fun `보너스 번호가 당첨번호와 중복되면 예외를 발생시킨다`() {
+    fun `당첨 번호 6개에 보너스 번호가 포함될 수 없다`() {
         //given
         val winningNumbers = LottoTicket(1, 2, 3, 4, 5, 6)
         val bonusNumber = LottoNumber.of(6)
@@ -30,7 +30,7 @@ internal class WinningTicketTest {
 
     @MethodSource("provideLottoTicketsAndPrizes")
     @ParameterizedTest
-    fun `티켓과 당첨번호를 비교해 결과를 출력한다`(otherTicket: LottoTicket, prize: Prize) {
+    fun `당첨 티켓과 각 로또 티켓을 비교하면 로또 순위를 반환한다`(otherTicket: LottoTicket, prize: Prize) {
         //given
         val winningNumbers = LottoTicket(1, 2, 3, 4, 5, 6)
         val bonusNumber = LottoNumber.of(20)

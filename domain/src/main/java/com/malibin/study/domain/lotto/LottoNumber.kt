@@ -19,7 +19,6 @@ value class LottoNumber private constructor(
         private val cachedLottoNumbers: Map<Int, LottoNumber> =
             RANGE.associateWith { LottoNumber(it) }
 
-        @JvmStatic
         fun of(number: Int): LottoNumber {
             return cachedLottoNumbers[number]
                 ?: throw IllegalArgumentException("입력 숫자 ($number)는 로또 숫자 범위(1 ~ 45) 내의 숫자가 아닙니다.")
